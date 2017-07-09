@@ -3,6 +3,7 @@ package com.example.android.habit.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.Cursor;
 
 import com.example.android.habit.data.HabitContract.HabitEntry;
 
@@ -11,6 +12,9 @@ import com.example.android.habit.data.HabitContract.HabitEntry;
  */
 
 public class HabitDBHelper extends SQLiteOpenHelper {
+
+    /** Database helper that will provide us access to the database */
+    private HabitDBHelper mDbHelper;
 
     //make constants for database name and version
     private static final String DATABASE_NAME = "habits.db";
@@ -36,5 +40,22 @@ public class HabitDBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+
+    //reads all of the information from the database and returns a Cursor object.
+    public Cursor readAllHabits() {
+        //gets the repo in read mode
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        String[] projection = { HabitEntry.COLUMN_HABIT_NAME,
+                HabitEntry.COLUMN_HABIT_TIME };
+        String selection = HabitEntry.COLUMN_HABIT_TIME + "=?";
+        String [] selectionArgs = new String[] { String.valueOf(HabitEntry.TIME_MORNING) };
+
+        Cursor cursor = db.query(HabitEntry.TABLE_NAME, projection,
+                selection, selectionArgs,
+                null, null, null);
+
+        return cursor;
     }
 }

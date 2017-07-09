@@ -31,6 +31,8 @@ import android.widget.TextView;
 import com.example.android.habit.data.HabitDBHelper;
 import com.example.android.habit.data.HabitContract.HabitEntry;
 
+import org.w3c.dom.Text;
+
 /**
  * Displays list of pets that were entered and stored in the app.
  */
@@ -59,8 +61,6 @@ public class CatalogActivity extends AppCompatActivity {
         insertValues("Walking the dog", HabitEntry.TIME_MORNING);
         insertValues("Play Pokemon GO", HabitEntry.TIME_EVENING);
 
-        queryValues();
-
         displayDatabaseInfo();
     }
 
@@ -74,26 +74,9 @@ public class CatalogActivity extends AppCompatActivity {
         values.put(HabitEntry.COLUMN_HABIT_TIME, habitTime);
 
         long newRowId = db.insert(HabitEntry.TABLE_NAME, null, values);
-        //db.insert(HabitEntry.TABLE_NAME, null, values);
 
         Log.v("CatalogActivity", "New row ID " + newRowId);
     }
-
-    //method to query - return both habit name and habit time, where time == morning
-    private void queryValues() {
-        //gets the repo in read mode
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
-
-        String[] projection = { HabitEntry.COLUMN_HABIT_NAME,
-                HabitEntry.COLUMN_HABIT_TIME };
-        String selection = HabitEntry.COLUMN_HABIT_TIME + "=?";
-        String [] selectionArgs = new String[] { String.valueOf(HabitEntry.TIME_MORNING) };
-
-        Cursor c = db.query(HabitEntry.TABLE_NAME, projection,
-                selection, selectionArgs,
-                null, null, null);
-    }
-
 
     //for testing
     private void displayDatabaseInfo() {
@@ -110,7 +93,7 @@ public class CatalogActivity extends AppCompatActivity {
         try {
             // Display the number of rows in the Cursor (which reflects the number of rows in the
             // pets table in the database).
-            TextView displayView = (TextView) findViewById(R.id.text_view_pet);
+            TextView displayView = (TextView) findViewById(R.id.text_view_habit);
             displayView.setText("Number of rows in habits database table: " + cursor.getCount());
         } finally {
             // Always close the cursor when you're done reading from it. This releases all its
