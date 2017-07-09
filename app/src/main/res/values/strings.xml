@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Android Open Source Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Name for the application [CHAR LIMIT=12] -->
+    <string name="app_name">Pets</string>
+
+    <!-- Label for overflow menu option that inserts fake activity data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu option that deletes all activity data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Activities</string>
+
+    <!-- Title for the activity to add a new activity [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_pet">Add an Activity</string>
+
+    <!-- Label for editor menu option to save activity and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for editor overflow menu option that deletes the current activity [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete</string>
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Label for gender information in the editor [CHAR LIMIT=30] -->
+    <string name="category_gender">Gender</string>
+
+    <!-- Label for activity time information in the editor [CHAR LIMIT=30] -->
+    <string name="category_time">Time</string>
+
+    <!-- Label for measurement information in the editor [CHAR LIMIT=30] -->
+    <string name="category_measurement">Measurement</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_pet_name">Name</string>
+
+    <!-- Label for dropdown menu option if the pet's gender is unknown [CHAR LIMIT=20] -->
+    <string name="activity_unknown">Unknown</string>
+
+    <!-- Label for dropdown menu option if activity is in the morning [CHAR LIMIT=20] -->
+    <string name="activity_morning">Morning</string>
+
+    <!-- Label for dropdown menu option if activity is in the afternoon [CHAR LIMIT=20] -->
+    <string name="activity_afternoon">Afternoon</string>
+
+    <!-- Label for dropdown menu option if activity is in the evening [CHAR LIMIT=20] -->
+    <string name="activity_evening">Evening</string>
+
+
+</resources>
