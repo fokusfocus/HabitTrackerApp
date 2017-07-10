@@ -13,9 +13,6 @@ import com.example.android.habit.data.HabitContract.HabitEntry;
 
 public class HabitDBHelper extends SQLiteOpenHelper {
 
-    /** Database helper that will provide us access to the database */
-    private HabitDBHelper mDbHelper;
-
     //make constants for database name and version
     private static final String DATABASE_NAME = "habits.db";
     private static final int DATABASE_VERSION = 1;
@@ -45,7 +42,7 @@ public class HabitDBHelper extends SQLiteOpenHelper {
     //reads all of the information from the database and returns a Cursor object.
     public Cursor readAllHabits() {
         //gets the repo in read mode
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+        SQLiteDatabase db = getReadableDatabase();
 
         String[] projection = { HabitEntry.COLUMN_HABIT_NAME,
                 HabitEntry.COLUMN_HABIT_TIME };
